@@ -43,6 +43,7 @@
     "webpack-cli": "^4.8.0"
   },
   "dependencies": {
+    "http-server": "^14.0.0",
     "postcss": "^8.3.8"
   }
 }
