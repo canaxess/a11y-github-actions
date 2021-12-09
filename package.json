@@ -1,0 +1,47 @@
+{
+  "name": "a11y-github-actions",
+  "version": "1.0.0",
+  "description": "Demonstrating a11y GitHub actions",
+  "main": "index.js",
+  "scripts": {
+    "css:scss": "node-sass --output-style compressed -o dist src/scss",
+    "css:autoprefixer": "postcss -u autoprefixer -r dist/*.css",
+    "css:lint": "stylelint src/scss/*.scss --syntax scss || true",
+    "build:css": "npm run css:lint && npm run css:scss && npm run css:autoprefixer",
+    "build:images": "imagemin src/images/**/* --out-dir=dist/images",
+    "build:js": "webpack --mode=production",
+    "build:html": "posthtml -c posthtml.json",
+    "watch:images": "onchange \"src/images\" -- npm run build:images",
+    "watch:css": "onchange \"src/scss\" -- npm run build:css",
+    "watch:js": "onchange \"src/js\" -- webpack --mode=development",
+    "watch:html": "onchange \"src/views\" -- npm run build:html",
+    "serve": "browser-sync start --server \"dist\" --files \"dist\"",
+    "watch": "run-p serve watch:*",
+    "build": "run-p build:*"
+  },
+  "author": "CANAXASS",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.6",
+    "autoprefixer": "^10.3.6",
+    "babel-loader": "^8.2.2",
+    "browser-sync": "^2.27.5",
+    "eslint": "^7.32.0",
+    "eslint-loader": "^4.0.2",
+    "htmlnano": "^1.1.1",
+    "imagemin-cli": "^7.0.0",
+    "node-sass": "^6.0.1",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss-cli": "^9.0.1",
+    "posthtml": "^0.16.5",
+    "posthtml-cli": "^0.10.0",
+    "posthtml-modules": "^0.7.4",
+    "stylelint": "^13.13.1",
+    "webpack": "^5.56.0",
+    "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {
+    "postcss": "^8.3.8"
+  }
+}
