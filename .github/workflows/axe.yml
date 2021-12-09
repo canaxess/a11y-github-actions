@@ -1,4 +1,4 @@
-name: axe
+name: axe-core
 on:
   push:
     branches: [main]
