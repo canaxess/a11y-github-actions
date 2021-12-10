@@ -18,6 +18,6 @@ jobs:
       - run: npm start & npx wait-on http://localhost:8080
       - name: Run axe
         run: echo '::set-output name=SELECTED_COLOR::green'
-        run: |
+        run:
           npm install -g @axe-core/cli
           axe http://localhost:8080 --exit
