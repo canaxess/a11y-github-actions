@@ -19,4 +19,5 @@ jobs:
       - name: Run axe
         run: |
           npm install -g @axe-core/cli
+          echo '::set-output name=SELECTED_COLOR::red'
           axe http://localhost:8080 --exit
