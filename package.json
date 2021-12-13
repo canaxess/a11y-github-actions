@@ -8,7 +8,6 @@
     "css:autoprefixer": "postcss -u autoprefixer -r dist/*.css",
     "css:lint": "stylelint src/scss/*.scss --syntax scss || true",
     "build:css": "npm run css:lint && npm run css:scss && npm run css:autoprefixer",
-    "build:images": "imagemin src/images/**/* --out-dir=dist/images",
     "build:js": "webpack --mode=production",
     "build:html": "posthtml -c posthtml.json",
     "watch:images": "onchange \"src/images\" -- npm run build:images",
